@@ -34,4 +34,13 @@ public class DefaultDataError implements DataError{
     public ErrorMetaData getErrorMetaData() {
         return errorMetaData;
     }
+
+    @Override
+    public String toString() {
+        return "DefaultDataError{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", errorMetaData=" + errorMetaData +
+                '}';
+    }
 }

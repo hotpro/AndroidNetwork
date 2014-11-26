@@ -18,8 +18,5 @@ public class ServiceProvider {
         return efHttpService;
     }
 
-    public static HttpRequest createRequest(String url, EFHttpRequestType type, String body) {
-        return new DefaultHttpRequest(url, type, body);
-    }
 
 }

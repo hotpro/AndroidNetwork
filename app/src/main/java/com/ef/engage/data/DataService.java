@@ -1,6 +1,8 @@
 package com.ef.engage.data;
 
 import com.ef.engage.data.model.Course;
+import com.ef.engage.data.model.SessionInfo;
+import com.ef.engage.data.model.StudyContext;
 
 /**
  * Created with Android Studio
@@ -9,9 +11,9 @@ import com.ef.engage.data.model.Course;
  */
 public interface DataService {
 
-    public void login();
+    public void login(String userName, String password, DataRequestHandler<SessionInfo> dataRequestHandler);
 
-    public void getStudyContext();
+    public void getStudyContext(String token, String culturecode, String sessionId, DataRequestHandler<StudyContext> dataRequestHandler);
 
     public void getCourse(String id, DataRequestHandler<Course> dataRequestHandler);
 

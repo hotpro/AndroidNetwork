@@ -8,7 +8,7 @@ import com.ef.engage.data.net.WebResponse;
  * User: Chris.Hou
  * Date: 11/19/14
  */
-public class DefaultDataResponse<T> implements DataResponse {
+public class DefaultDataResponse<T> implements DataResponse <T> {
 
     private final int code;
     private final T data;

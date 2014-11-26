@@ -1,13 +1,11 @@
-package com.ef.engage.data.net;
-
-import com.ef.engage.data.ServiceResponse;
+package com.ef.engage.data.model;
 
 /**
  * Created with Android Studio
  * User: Chris.Hou
- * Date: 11/22/14
+ * Date: 11/26/14
  */
-public class LoginResponse extends ServiceResponse{
+public class SessionInfo {
     private String token;
     private String sessionId;
     private String memberId;
@@ -22,5 +20,14 @@ public class LoginResponse extends ServiceResponse{
 
     public String getMemberId() {
         return memberId;
+    }
+
+    @Override
+    public String toString() {
+        return "SessionInfo{" +
+                "token='" + token + '\'' +
+                ", sessionId='" + sessionId + '\'' +
+                ", memberId='" + memberId + '\'' +
+                '}';
     }
 }

@@ -63,13 +63,13 @@ public class MainActivity extends ActionBarActivity {
         this.sessionInfo = getSessionInfo();
         if (sessionInfo != null) {
             txtUser.setText(sessionInfo.toString());
+            btnLogin.setVisibility(View.INVISIBLE);
         }
     }
 
     private SessionInfo sessionInfo;
 
     private void login() {
-        String url = "http://mobiledev.englishtown.com/services/mobile/service/login";
         final String userName = "dmobile";
         final String password = "ef";
         executor.execute(new Runnable() {

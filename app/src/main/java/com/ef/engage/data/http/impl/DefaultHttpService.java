@@ -52,16 +52,16 @@ public class DefaultHttpService implements HttpService {
                 byte[] bytes = okHttpResponse.body().bytes();
 
                 HttpResponse httpResponse = new DefaultHttpResponse(statusCode, bytes);
-                httpRequestHandler.onSuccess(httpResponse);
+                httpRequestHandler.onSuccess(request, httpResponse);
             } else {
                 HttpError httpError = new DefaultHttpError(statusCode, okHttpResponse.message());
-                httpRequestHandler.onError(httpError);
+                httpRequestHandler.onError(request, httpError);
             }
         } catch (IOException e) {
             e.printStackTrace();
             // TODO consider blurbs
             HttpError httpError = new DefaultHttpError(0, e.getMessage());
-            httpRequestHandler.onError(httpError);
+            httpRequestHandler.onError(request, httpError);
         }
     }
 

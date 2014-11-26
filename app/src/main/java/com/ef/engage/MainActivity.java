@@ -1,13 +1,10 @@
 package com.ef.engage;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,9 +14,7 @@ import com.ef.engage.data.DataRequestHandler;
 import com.ef.engage.data.DataResponse;
 import com.ef.engage.data.DataService;
 import com.ef.engage.data.cache.impl.DefaultCacheService;
-import com.ef.engage.data.http.EFHttpRequestType;
 import com.ef.engage.data.http.HttpService;
-import com.ef.engage.data.http.ServiceProvider;
 import com.ef.engage.data.http.impl.DefaultHttpService;
 import com.ef.engage.data.impl.DefaultDataService;
 import com.ef.engage.data.model.SessionInfo;
@@ -28,12 +23,8 @@ import com.ef.engage.data.net.WebService;
 import com.ef.engage.data.net.impl.DefaultWebService;
 import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -150,35 +141,16 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onStart() {
 
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                Log.d(TAG, "Get StudyContext onStart");
-                            }
-                        });
 
                     }
 
                     @Override
                     public void onSuccess(final DataResponse<StudyContext> dataResponse) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.v(TAG, "StudyContext: " + dataResponse.getData().toString());
-                            }
-                        });
 
                     }
 
                     @Override
                     public void onError(final DataError dataError) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.v(TAG, "StudyContext error: " + dataError.toString());
-                            }
-                        });
 
                     }
                 });

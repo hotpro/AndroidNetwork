@@ -34,4 +34,13 @@ public class DefaultHttpRequest implements HttpRequest {
     public String getBody() {
         return body;
     }
+
+    @Override
+    public String toString() {
+        return "DefaultHttpRequest{" +
+                "url='" + url + '\'' +
+                ", method=" + method +
+                ", body='" + body + '\'' +
+                '}';
+    }
 }

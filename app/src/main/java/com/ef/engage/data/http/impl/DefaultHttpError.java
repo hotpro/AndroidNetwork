@@ -25,4 +25,12 @@ public class DefaultHttpError implements HttpError{
     public String getMessage() {
         return message;
     }
+
+    @Override
+    public String toString() {
+        return "DefaultHttpError{" +
+                "statusCode=" + statusCode +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

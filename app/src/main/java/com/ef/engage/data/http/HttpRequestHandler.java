@@ -7,6 +7,6 @@ package com.ef.engage.data.http;
  */
 public interface HttpRequestHandler {
     public void onStart();
-    public void onSuccess(HttpResponse httpResponse);
-    public void onError(HttpError httpError);
+    public void onSuccess(HttpRequest httpRequest, HttpResponse httpResponse);
+    public void onError(HttpRequest httpRequest, HttpError httpError);
 }

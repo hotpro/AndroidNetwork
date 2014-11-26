@@ -1,5 +1,7 @@
 package com.ef.engage.data.net.impl;
 
+import android.util.Log;
+
 import com.ef.engage.data.ServiceResponse;
 import com.ef.engage.data.http.HttpError;
 import com.ef.engage.data.http.HttpRequest;
@@ -29,6 +31,7 @@ import java.io.UnsupportedEncodingException;
 public class DefaultWebService implements WebService {
 
     public static final String KEY_SERVICE_RESPONSE = "serviceResponse";
+    private static final String TAG = DefaultWebService.class.getSimpleName();
 
     private HttpService httpService;
 
@@ -173,9 +176,13 @@ public class DefaultWebService implements WebService {
         }
 
         @Override
-        public void onSuccess(HttpResponse httpResponse) {
+        public void onSuccess(HttpRequest httpRequest, HttpResponse httpResponse) {
             try {
+
                 String body = new String(httpResponse.getBody(), "UTF-8");
+                String log = String.format("httpRequest: %s, httpResponse.body: %s", httpRequest, body);
+                Log.d(TAG, log);
+
                 JSONObject responseBody = new JSONObject(body);
                 JSONObject serviceResponse = responseBody.getJSONObject(KEY_SERVICE_RESPONSE);
 
@@ -203,7 +210,10 @@ public class DefaultWebService implements WebService {
         }
 
         @Override
-        public void onError(HttpError httpError) {
+        public void onError(HttpRequest httpRequest, HttpError httpError) {
+            String log = String.format("httpRequest: %s, httpError: %s", httpRequest, httpError);
+            Log.e(TAG, log);
+
             WebError webError = new DefaultWebError(httpError.getStatusCode(), httpError.getMessage(), null);
             webRequestHandler.onError(webError);
         }

@@ -2,6 +2,9 @@ package com.ef.engage.data.http.impl;
 
 import com.ef.engage.data.http.HttpResponse;
 
+import java.io.InputStream;
+import java.util.Map;
+
 /**
  * Created with Android Studio
  * User: Chris.Hou
@@ -24,5 +27,15 @@ public class DefaultHttpResponse implements HttpResponse {
     @Override
     public byte[] getBody() {
         return body;
+    }
+
+    @Override
+    public Map<String, String> getHeaders() {
+        return null;
+    }
+
+    @Override
+    public InputStream getInputSteam() {
+        return null;
     }
 }

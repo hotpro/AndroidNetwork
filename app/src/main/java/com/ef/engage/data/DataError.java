@@ -1,7 +1,5 @@
 package com.ef.engage.data;
 
-import com.ef.engage.data.ErrorMetaData;
-
 /**
  * Created with Android Studio
  * User: Chris.Hou

@@ -1,7 +1,6 @@
 package com.ef.engage.data.impl;
 
 import com.ef.engage.data.DataResponse;
-import com.ef.engage.data.net.WebResponse;
 
 /**
  * Created with Android Studio

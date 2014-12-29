@@ -3,6 +3,8 @@ package com.ef.engage.data.http.impl;
 import com.ef.engage.data.http.HttpRequest;
 import com.ef.engage.data.http.HttpService;
 
+import java.util.Map;
+
 /**
  * Created with Android Studio
  * User: Chris.Hou
@@ -33,6 +35,11 @@ public class DefaultHttpRequest implements HttpRequest {
     @Override
     public String getBody() {
         return body;
+    }
+
+    @Override
+    public Map<String, String> getHeaders() {
+        return null;
     }
 
     @Override

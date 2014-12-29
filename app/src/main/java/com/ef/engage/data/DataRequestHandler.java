@@ -1,8 +1,5 @@
 package com.ef.engage.data;
 
-import com.ef.engage.data.net.WebError;
-import com.ef.engage.data.net.WebResponse;
-
 /**
  * Created with Android Studio
  * User: Chris.Hou

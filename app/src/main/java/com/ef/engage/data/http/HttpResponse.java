@@ -1,5 +1,8 @@
 package com.ef.engage.data.http;
 
+import java.io.InputStream;
+import java.util.Map;
+
 /**
  * Created with Android Studio
  * User: Chris.Hou
@@ -8,4 +11,6 @@ package com.ef.engage.data.http;
 public interface HttpResponse {
     public int getStatusCode();
     public byte[] getBody();
+    public Map<String, String> getHeaders();
+    public InputStream getInputSteam();
 }

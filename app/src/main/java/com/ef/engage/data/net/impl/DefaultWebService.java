@@ -34,9 +34,11 @@ public class DefaultWebService implements WebService {
     private static final String TAG = DefaultWebService.class.getSimpleName();
 
     private HttpService httpService;
+    private final Gson gson;
 
     public DefaultWebService(HttpService httpService) {
         this.httpService = httpService;
+        gson = new Gson();
     }
 
     @Override
@@ -118,7 +120,7 @@ public class DefaultWebService implements WebService {
                 try {
                     JSONObject jsonObject = new JSONObject(body);
                     JSONObject j = jsonObject.getJSONObject("enrollments");
-                    return new Gson().fromJson(j.toString(), clazz);
+                    return gson.fromJson(j.toString(), clazz);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -139,7 +141,7 @@ public class DefaultWebService implements WebService {
         @Override
         public T parse(String serviceResponse, Class<T> clazz) throws JSONException {
             JSONObject jsonObject = new JSONObject(serviceResponse);
-            return new Gson().fromJson(jsonObject.get(key).toString(), clazz);
+            return gson.fromJson(jsonObject.get(key).toString(), clazz);
         }
     }
 
@@ -154,7 +156,7 @@ public class DefaultWebService implements WebService {
          * @return
          */
         public T parse(String serviceResponse, Class<T> clazz) throws JSONException {
-            return new Gson().fromJson(serviceResponse, clazz);
+            return gson.fromJson(serviceResponse, clazz);
         }
     }
 
@@ -186,8 +188,6 @@ public class DefaultWebService implements WebService {
                 JSONObject responseBody = new JSONObject(body);
                 JSONObject serviceResponse = responseBody.getJSONObject(KEY_SERVICE_RESPONSE);
 
-                Gson gson = new Gson();
-
                 ServiceResponse response = gson.fromJson(serviceResponse.toString(), ServiceResponse.class);
                 int code = response.getErrorCode();
 
@@ -197,7 +197,7 @@ public class DefaultWebService implements WebService {
                     webRequestHandler.onSuccess(new DefaultWebResponse<T>(code, t, lastUpdate));
 
                 } else {
-                    WebError webError = new Gson().fromJson(serviceResponse.toString(), DefaultWebError.class);
+                    WebError webError = gson.fromJson(serviceResponse.toString(), DefaultWebError.class);
                     webRequestHandler.onError(webError);
                 }
 

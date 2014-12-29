@@ -2,7 +2,6 @@ package com.ef.engage.data.impl;
 
 import com.ef.engage.data.DataError;
 import com.ef.engage.data.ErrorMetaData;
-import com.ef.engage.data.net.WebError;
 
 /**
  * Created with Android Studio
